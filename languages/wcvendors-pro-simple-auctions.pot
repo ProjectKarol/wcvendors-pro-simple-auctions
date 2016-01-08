@@ -1,0 +1,155 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WC Vendors Pro Simple Auctions\n"
+"POT-Creation-Date: 2016-01-08 22:52+1000\n"
+"PO-Revision-Date: 2016-01-08 22:51+1000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: class-wcv-simple-auctions.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: class-wcv-simple-auctions.php:109
+msgid "WC Vendors Pro Simple Auctions requires WC Vendors Pro to function."
+msgstr ""
+
+#: class-wcv-simple-auctions.php:120
+msgid ""
+"WC Vendors Pro Simple Auctions requires WooCommerce Simple Auctions to "
+"function."
+msgstr ""
+
+#: class-wcv-simple-auctions.php:189
+msgid "Auction Details"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:213
+msgid "Item Condition"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:215
+msgid "The condition of the item you are selling"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:218
+msgid "New"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:218
+msgid "Used"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:227
+msgid "Auction Type"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:229
+msgid ""
+"Type of Auction - Normal prefers high bidders, reverse prefers low bids to "
+"win."
+msgstr ""
+
+#: class-wcv-simple-auctions.php:232
+msgid "Normal"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:232
+msgid "Reverse"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:240
+msgid "Enable proxy bidding"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:249
+msgid "Start Price"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:260
+msgid "Bid increment"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:271
+msgid "Reserve price"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:282
+msgid "Buy it now price"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:297
+msgid "From"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:300
+msgid "From&hellip;"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:313
+msgid "To"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:315
+msgid "To&hellip;"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:320
+msgid "The sale will end at the beginning of the set date."
+msgstr ""
+
+#: class-wcv-simple-auctions.php:320
+msgid "Cancel"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:336
+msgid "Auction Dates"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:337 class-wcv-simple-auctions.php:344
+msgctxt "placeholder"
+msgid "From&hellip;"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:338 class-wcv-simple-auctions.php:345
+msgctxt "placeholder"
+msgid "To&hellip;"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:342
+msgid "Relist"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:343
+msgid "Relist Auction Dates"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WC Vendors Pro Simple Auctions"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.wcvendors.com/wc-vendors-simple-auctions/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Add WooCommerce simple auctions support to WC Vendors Pro"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WC Vendors"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.wcvendors.com/"
+msgstr ""
