@@ -280,14 +280,15 @@ class WC_Vendors_Simple_Auctions {
 	            ) )
 	    );
 
-	 
+		echo '<p>Start Date</p>'; 
+		 
 		WCVendors_Pro_Form_Helper::input( apply_filters( 'wcv_simple_auctions_start_date', array( 
 			'post_id'		=> $post_id, 
 			'id' 			=> '_auction_dates_from', 
 			'label' 		=> __( 'From', 'wcvendors-pro-simple-auctions' ), 
 			'class'			=> 'wcv-datepicker', 
 			'placeholder'	=> __( 'From&hellip;', 'placeholder', 'wcvendors-pro-simple-auctions' ). ' YYYY-MM-DD',  
-			'wrapper_start' => '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-50 small-100 sale_price_dates_fields">',
+			'wrapper_start' => '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-50 small-100 ">',
 			'wrapper_end' 	=> '</div>', 
 			'custom_attributes' => array(
 				'maxlenth' 	=> '10', 
@@ -302,7 +303,7 @@ class WC_Vendors_Simple_Auctions {
 			'label' 			=> __( 'To', 'wcvendors-pro-simple-auctions' ), 
 			'class'				=> 'wcv-datepicker', 
 			'placeholder'		=> __( 'To&hellip;', 'placeholder', 'wcvendors-pro-simple-auctions' ). ' YYYY-MM-DD', 
-			'wrapper_start' 	=> '<div class="all-50 small-100 sale_price_dates_fields">',
+			'wrapper_start' 	=> '<div class="all-50 small-100">',
 			'wrapper_end' 		=> '</div></div>', 
 			'desc_tip'			=> true, 
 			'custom_attributes' => array(
@@ -313,17 +314,12 @@ class WC_Vendors_Simple_Auctions {
 		);
 
 
-		/* OLD SHIT -- The dates below work but they are not using the pro form helper.
+		/*
 		 * Next, notice the code below has functionality for a "relist" product.  A relist button would be very useful and for sure requested.
 		 * Third, the vendor store does not show any auctions
 		 * And last but not least, once an auction is added, they dont show up on the dashboard > products page to edit them.
 		 */
 						
-		// echo '<p class="form-field auction_dates_fields">
-		// 	<label for="_auction_dates_from">' . __( 'Auction Dates', 'wc_simple_auctions' ) . '</label>
-		// 	<input type="text" class="short datetimepicker" name="_auction_dates_from" id="_auction_dates_from" value="' . $auction_dates_from . '" placeholder="' . _x( 'From&hellip;', 'placeholder', 'wc_simple_auctions' ) . ' YYYY-MM-DD HH:MM" maxlength="16" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])[ ](0[0-9]|1[0-9]|2[0-4]):(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9])" />
-		// 	<input type="text" class="short datetimepicker" name="_auction_dates_to" id="_auction_dates_to" value="' . $auction_dates_to . '" placeholder="' . _x( 'To&hellip;', 'placeholder', 'wc_simple_auctions' ) . '  YYYY-MM-DD HH:MM" maxlength="16" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])[ ](0[0-9]|1[0-9]|2[0-4]):(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9])" />
-		// 	</p>';
 		                
 		// if ($product->auction_closed  && !$product->auction_payed ){
 		//         echo '<p class="form-field relist_dates_fields"><a class="button relist" href="#" id="relistauction">'.__('Relist','wc_simple_auctions').'</a></p>
