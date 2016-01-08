@@ -206,7 +206,7 @@ class WC_Vendors_Simple_Auctions {
 				'class'				=> 'select2',
 				'label'	 			=> __( 'Item Condition', 'wc_simple_auctions' ), 
 				'desc_tip' 			=> 'true', 
-				'description' 			=> sprintf( __( 'The condition of the item you are selling', 'wcvendors-pro' ) ), 
+				'description' 			=> sprintf( __( 'The condition of the item you are selling', 'wcvendors-pro-simple-auctions' ) ), 
 				'wrapper_start' 		=> '<div class="all-100">',
 				'wrapper_end' 			=> '</div>', 
 				'options' 			=> array( 'new' => __('New', 'wc_simple_auctions'), 'used'=> __('Used', 'wc_simple_auctions') )
@@ -220,7 +220,7 @@ class WC_Vendors_Simple_Auctions {
                 'class'                         => 'select2',
                 'label'                         => __( 'Auction Type', 'wc_simple_auctions' ),
                 'desc_tip'                      => 'true',
-                'description'                   => sprintf( __( 'Type of Auction - Normal prefers high bidders, reverse prefers low bids to win.', 'wcvendors-pro' ) ),                                             
+                'description'                   => sprintf( __( 'Type of Auction - Normal prefers high bidders, reverse prefers low bids to win.', 'wcvendors-pro-simple-auctions' ) ),                                             
                 'wrapper_start'                 => '<div class="all-100">',
                 'wrapper_end'                   => '</div>',
                 'options'                       => array( 'normal' => __('Normal', 'wc_simple_auctions'), 'reverse'=> __('Reverse', 'wc_simple_auctions') )
@@ -280,17 +280,13 @@ class WC_Vendors_Simple_Auctions {
 	            ) )
 	    );
 
-		// Auction Dates
-		$auction_price_dates_from = $post_id ? ( ( $date = get_post_meta( $post_id, '_sale_price_dates_from', true ) ) ? date_i18n( 'Y-m-d', $date ) : '' ) : '';
-		$auction_price_dates_to   = $post_id ? ( ( $date = get_post_meta( $post_id, '_sale_price_dates_to', true ) ) ? date_i18n( 'Y-m-d', $date ) : '' ) : '';	
-
+	 
 		WCVendors_Pro_Form_Helper::input( apply_filters( 'wcv_simple_auctions_start_date', array( 
 			'post_id'		=> $post_id, 
 			'id' 			=> '_auction_dates_from', 
-			'label' 		=> __( 'From', 'wcvendors-pro' ), 
+			'label' 		=> __( 'From', 'wcvendors-pro-simple-auctions' ), 
 			'class'			=> 'wcv-datepicker', 
-			'value' 		=> esc_attr( $auction_price_dates_from ), 
-			'placeholder'	=> ( '' == $auction_price_dates_from ) ? __( 'From&hellip;', 'placeholder', 'wcvendors-pro' ). ' YYYY-MM-DD' : '',  
+			'placeholder'	=> __( 'From&hellip;', 'placeholder', 'wcvendors-pro-simple-auctions' ). ' YYYY-MM-DD',  
 			'wrapper_start' => '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-50 small-100 sale_price_dates_fields">',
 			'wrapper_end' 	=> '</div>', 
 			'custom_attributes' => array(
@@ -303,14 +299,12 @@ class WC_Vendors_Simple_Auctions {
 		WCVendors_Pro_Form_Helper::input( apply_filters( 'wcv_simple_auctions_end_date', array( 
 			'post_id'			=> $post_id, 
 			'id' 				=> '_auction_dates_to', 
-			'label' 			=> __( 'To', 'wcvendors-pro' ), 
+			'label' 			=> __( 'To', 'wcvendors-pro-simple-auctions' ), 
 			'class'				=> 'wcv-datepicker', 
-			'placeholder'		=> ( '' == $auction_price_dates_to ) ? __( 'To&hellip;', 'placeholder', 'wcvendors-pro' ). ' YYYY-MM-DD' : '', 
+			'placeholder'		=> __( 'To&hellip;', 'placeholder', 'wcvendors-pro-simple-auctions' ). ' YYYY-MM-DD', 
 			'wrapper_start' 	=> '<div class="all-50 small-100 sale_price_dates_fields">',
 			'wrapper_end' 		=> '</div></div>', 
-			'value' 			=> esc_attr( $auction_price_dates_to ), 
 			'desc_tip'			=> true, 
-			'description'		=> __( 'The sale will end at the beginning of the set date.', 'wcvendors-pro' ) . '<a href="#" class="cancel_sale_schedule right">'. __( 'Cancel', 'wcvendors-pro' ) .'</a>', 
 			'custom_attributes' => array(
 				'maxlenth' 		=> '10', 
 				'pattern' 		=> '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])'
