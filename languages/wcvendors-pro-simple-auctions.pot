@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WC Vendors Pro Simple Auctions\n"
-"POT-Creation-Date: 2016-01-08 23:14+1000\n"
+"POT-Creation-Date: 2016-01-10 12:54+1000\n"
 "PO-Revision-Date: 2016-01-08 22:51+1000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,71 +20,71 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: class-wcv-simple-auctions.php:108
+#: class-wcv-simple-auctions.php:109
 msgid "WC Vendors Pro Simple Auctions requires WC Vendors Pro to function."
 msgstr ""
 
-#: class-wcv-simple-auctions.php:117
+#: class-wcv-simple-auctions.php:118
 msgid ""
 "WC Vendors Pro Simple Auctions requires WooCommerce Simple Auctions to "
 "function."
 msgstr ""
 
-#: class-wcv-simple-auctions.php:184
+#: class-wcv-simple-auctions.php:185
 msgid "Auction"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:207
+#: class-wcv-simple-auctions.php:208
 msgid "Item Condition"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:209
+#: class-wcv-simple-auctions.php:210
 msgid "The condition of the item you are selling"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:212
+#: class-wcv-simple-auctions.php:213
 msgid "New"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:212
+#: class-wcv-simple-auctions.php:213
 msgid "Used"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:221
+#: class-wcv-simple-auctions.php:222
 msgid "Auction Type"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:223
+#: class-wcv-simple-auctions.php:224
 msgid ""
 "Type of Auction - Normal prefers high bidders, reverse prefers low bids to "
 "win."
 msgstr ""
 
-#: class-wcv-simple-auctions.php:226
+#: class-wcv-simple-auctions.php:227
 msgid "Normal"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:226
+#: class-wcv-simple-auctions.php:227
 msgid "Reverse"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:234
+#: class-wcv-simple-auctions.php:235
 msgid "Enable proxy bidding"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:243
+#: class-wcv-simple-auctions.php:244
 msgid "Start Price"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:254
+#: class-wcv-simple-auctions.php:255
 msgid "Bid increment"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:265
+#: class-wcv-simple-auctions.php:266
 msgid "Reserve price"
 msgstr ""
 
-#: class-wcv-simple-auctions.php:276
+#: class-wcv-simple-auctions.php:277
 msgid "Buy it now price"
 msgstr ""
 
@@ -102,6 +102,18 @@ msgstr ""
 
 #: class-wcv-simple-auctions.php:304
 msgid "To&hellip;"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:330
+msgid "auction"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:333
+msgid "<br />Auction Starts: <br />"
+msgstr ""
+
+#: class-wcv-simple-auctions.php:333
+msgid "<br />Auction Ends: <br />"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

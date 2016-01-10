@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: WC Vendors Pro Simple Auctions
- * Plugin URI: http://www.wcvendors.com/wc-vendors-simple-auctions/ 
- * Description: Add WooCommerce simple auctions support to WC Vendors Pro 
- * Version: 1.0.0
+ * Plugin Name: 	  WC Vendors Pro Simple Auctions
+ * Plugin URI: 		  http://www.wcvendors.com/wc-vendors-simple-auctions/ 
+ * Description: 	  Add WooCommerce simple auctions support to WC Vendors Pro 
+ * Version:	 		  1.0.0
  * Author:            WC Vendors
  * Author URI:        http://www.wcvendors.com/
  * License:           GPL-2.0+
@@ -54,9 +54,10 @@ class WC_Vendors_Simple_Auctions {
 			// Checks that Simple Auctions is active 
 			if ( class_exists( 'WooCommerce_simple_auction' ) ){ 
 
-				add_action( 'wcv_save_product_meta', array( $this, 'simple_auctions_meta_save' ) ); 
-				add_filter( 'wcv_product_meta_tabs', array( $this, 'simple_auction_meta_tab' ) );
-				add_action( 'wcv_after_shipping_tab', array( $this, 'simple_auctions_form' ) ); 
+				add_action( 'wcv_save_product_meta', array( $this, 'auctions_meta_save' ) ); 
+				add_filter( 'wcv_product_meta_tabs', array( $this, 'auction_meta_tab' ) );
+				add_action( 'wcv_after_shipping_tab', array( $this, 'auctions_form' ) ); 
+				add_filter( 'wcv_product_table_rows', array( $this, 'product_rows' ) ); 
 
 			} else { 
 				add_action( 'admin_notices', array( $this, 'simple_auctions_missing_notice' ) );
@@ -123,7 +124,7 @@ class WC_Vendors_Simple_Auctions {
 	 *
 	 * @since 1.0.0 
 	*/
-	public function simple_auctions_meta_save( $post_id ) { 
+	public function auctions_meta_save( $post_id ) { 
 
 		$product_type = empty( $_POST['product-type'] ) ? 'simple' : sanitize_title( stripslashes( $_POST[ 'product-type' ] ) );
 		
@@ -178,7 +179,7 @@ class WC_Vendors_Simple_Auctions {
 	 *
 	 * @since 1.0.0 
 	*/
-	public function simple_auction_meta_tab( $tabs ) { 
+	public function auction_meta_tab( $tabs ) { 
 
 		$tabs[ 'simple_auction' ]  = array( 
 					'label'  => __( 'Auction', 'wcvendors-pro-simple-auctions' ), 
@@ -195,7 +196,7 @@ class WC_Vendors_Simple_Auctions {
 	 *
 	 * @since 1.0.0 
 	*/
-	public function simple_auctions_form( $post_id ){ 
+	public function auctions_form( $post_id ){ 
 
 		echo '<div class="wcv-product-auction auction_product_data tabs-content" id="auction">'; 
 
@@ -242,7 +243,7 @@ class WC_Vendors_Simple_Auctions {
 			'id' 			=> '_auction_start_price', 
 			'label' 		=> __( 'Start Price', 'wc_simple_auctions' ) . ' (' . get_woocommerce_currency_symbol() . ')', 
 			'data_type' 		=> 'price', 
-			'wrapper_start' 	=> '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-50 small-100">', 
+			'wrapper_start' 	=> '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-100 small-100">', 
 			'wrapper_end' 		=>  '</div></div>'
 			) )
 		);
@@ -253,7 +254,7 @@ class WC_Vendors_Simple_Auctions {
                 'id'                    => '_auction_bid_increment',
                 'label'                 => __( 'Bid increment', 'wc_simple_auctions' ) . ' (' . get_woocommerce_currency_symbol() . ')',
                 'data_type'             => 'price',
-                'wrapper_start'         => '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-50 small-100">',
+                'wrapper_start'         => '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-100 small-100">',
                 'wrapper_end'           =>  '</div></div>'
                 ) )
         );
@@ -264,7 +265,7 @@ class WC_Vendors_Simple_Auctions {
 	            'id'                    => '_auction_reserved_price',
 	            'label'                 => __( 'Reserve price', 'wc_simple_auctions' ) . ' (' . get_woocommerce_currency_symbol() . ')',
 	            'data_type'             => 'price',
-	            'wrapper_start'         => '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-50 small-100">',
+	            'wrapper_start'         => '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-100 small-100">',
 	            'wrapper_end'           =>  '</div></div>'
 	            ) )
 	    );
@@ -275,12 +276,10 @@ class WC_Vendors_Simple_Auctions {
 	            'id'                    => '_regular_price',
 	            'label'                 => __( 'Buy it now price', 'wc_simple_auctions' ) . ' (' . get_woocommerce_currency_symbol() . ')',
 	            'data_type'             => 'price',
-	            'wrapper_start'         => '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-50 small-100">',
+	            'wrapper_start'         => '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-100 small-100">',
 	            'wrapper_end'           =>  '</div></div>'
 	            ) )
 	    );
-
-		echo '<p>Start Date</p>'; 
 		 
 		WCVendors_Pro_Form_Helper::input( apply_filters( 'wcv_simple_auctions_start_date', array( 
 			'post_id'		=> $post_id, 
@@ -314,22 +313,33 @@ class WC_Vendors_Simple_Auctions {
 		);
 
 
-		/*
-		 * Next, notice the code below has functionality for a "relist" product.  A relist button would be very useful and for sure requested.
-		 * Third, the vendor store does not show any auctions
-		 * And last but not least, once an auction is added, they dont show up on the dashboard > products page to edit them.
-		 */
-						
-		                
-		// if ($product->auction_closed  && !$product->auction_payed ){
-		//         echo '<p class="form-field relist_dates_fields"><a class="button relist" href="#" id="relistauction">'.__('Relist','wc_simple_auctions').'</a></p>
-		//                            <p class="form-field relist_auction_dates_fields"> <label for="_relist_auction_dates_from">' . __( 'Relist Auction Dates', 'wc_simple_auctions' ) . '</label>
-		// 							<input type="text" class="short datetimepicker" name="_relist_auction_dates_from" id="_relist_auction_dates_from" value="" placeholder="' . _x( 'From&hellip;', 'placeholder', 'wc_simple_auctions' ) . ' YYYY-MM-DD HH:MM" maxlength="16" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])[ ](0[0-9]|1[0-9]|2[0-4]):(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9])" />
-		// 							<input type="text" class="short datetimepicker" name="_relist_auction_dates_to" id="_relist_auction_dates_to" value="" placeholder="' . _x( 'To&hellip;', 'placeholder', 'wc_simple_auctions' ) . '  YYYY-MM-DD HH:MM" maxlength="16" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])[ ](0[0-9]|1[0-9]|2[0-4]):(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9])" />
-		//                         </p>';
-		// }		
-
 	} // simple_auctions_form() 
+
+
+	/**
+	 * Output auction details on the product list page 
+	 *
+	 * @since 1.0.0 
+	*/
+	public function product_rows( $rows ){ 
+
+		foreach ( $rows as $row ) {
+			
+			$product = wc_get_product( $row->ID ); 
+
+			if ( $product->product_type == __( 'auction', 'wcvendors-pro-simple-auctions') ) { 
+
+				// Update status field
+				$row->status .= __( '<br />Auction Starts: <br />', 'wcvendors-pro-simple-auctions' ) . date_i18n( get_option( 'date_format' ), strtotime( $product->auction_dates_from ) ). __( '<br />Auction Ends: <br />', 'wcvendors-pro-simple-auctions' ) . date_i18n( get_option( 'date_format' ), strtotime( $product->auction_dates_to ) ); 
+				// Update price field 
+				$row->price = $product->get_price_html(); 
+			}
+
+		}
+
+		return $rows; 
+
+	} // product_rows()
 
 
 }
