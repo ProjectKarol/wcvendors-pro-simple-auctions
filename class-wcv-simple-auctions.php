@@ -312,6 +312,8 @@ class WC_Vendors_Simple_Auctions {
 			) )
 		);
 
+		echo '</div>'; 
+
 
 	} // simple_auctions_form() 
 
