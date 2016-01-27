@@ -150,8 +150,8 @@ class WC_Vendors_Simple_Auctions {
 				update_post_meta( $post_id, '_auction_bid_increment', stripslashes( $_POST['_auction_bid_increment'] ) );
 			if (isset($_POST['_auction_reserved_price']))
 				update_post_meta( $post_id, '_auction_reserved_price', stripslashes( $_POST['_auction_reserved_price'] ) );
-			if (isset($_POST['_regular_price']))
-				update_post_meta( $post_id, '_regular_price', stripslashes( $_POST['_regular_price'] ) );
+			if ( isset( $_POST['_buy_it_now_price'] ) )
+				update_post_meta( $post_id, '_regular_price', stripslashes( $_POST['_buy_it_now_price'] ) );
 			if (isset($_POST['_auction_dates_from']))
 				update_post_meta( $post_id, '_auction_dates_from', stripslashes( $_POST['_auction_dates_from'] ) );
 			if (isset($_POST['_auction_dates_to']))
@@ -273,7 +273,7 @@ class WC_Vendors_Simple_Auctions {
 		// Buy it Now Price
 		WCVendors_Pro_Form_Helper::input( apply_filters( 'wcv_simple_auctions_buy_it_now_price', array(
 	            'post_id'               => $post_id,
-	            'id'                    => '_regular_price',
+	            'id'                    => '_buy_it_now_price',
 	            'label'                 => __( 'Buy it now price', 'wc_simple_auctions' ) . ' (' . get_woocommerce_currency_symbol() . ')',
 	            'data_type'             => 'price',
 	            'wrapper_start'         => '<div class="wcv-cols-group wcv-horizontal-gutters"><div class="all-100 small-100">',
