@@ -3,7 +3,7 @@
  * Plugin Name: 	  WC Vendors Pro Simple Auctions
  * Plugin URI: 		  http://www.wcvendors.com/wc-vendors-simple-auctions/ 
  * Description: 	  Add WooCommerce simple auctions support to WC Vendors Pro 
- * Version:	 		  1.0.0
+ * Version:	 		  1.0.1
  * Author:            WC Vendors
  * Author URI:        http://www.wcvendors.com/
  * License:           GPL-2.0+
@@ -12,7 +12,7 @@
  * Domain Path:       /languages
  *
  * @link              http://www.wcvendors.com
- * @since             1.0.0
+ * @since             1.0.1
  * @package           WCVendors_Pro_Simple_Auctions 
  *
  */
