@@ -12,7 +12,7 @@
  * Domain Path:       /languages
  *
  * @link              http://www.wcvendors.com
- * @since             1.0.2
+ * @since             1.0.1
  * @package           WCVendors_Pro_Simple_Auctions 
  *
  */
@@ -55,6 +55,7 @@ class WC_Vendors_Simple_Auctions {
 			if ( class_exists( 'WooCommerce_simple_auction' ) ){ 
 
 				add_action( 'wcv_save_product_meta', array( $this, 'auctions_meta_save' ) ); 
+				add_filter( 'wcv_product_type_selector', array( $this, 'auction_product_type' ) ); 
 				add_filter( 'wcv_product_meta_tabs', array( $this, 'auction_meta_tab' ) );
 				add_action( 'wcv_after_shipping_tab', array( $this, 'auctions_form' ) ); 
 				add_filter( 'wcv_product_table_rows', array( $this, 'product_rows' ) ); 
@@ -180,6 +181,19 @@ class WC_Vendors_Simple_Auctions {
 
 	} // simple_auctions_meta_save() 
 
+
+	/**
+	 * Hook into the product type drop down
+	 *
+	 * @since 1.0.2
+	*/
+	public function auction_product_type( $types ) { 
+
+		$types[ 'auction' ] = __( 'Auction', 'wcvendors-pro-simple-auctions' );
+
+		return $types; 
+
+	} // auction_product_type() 
 
 	/**
 	 * Hook into the product meta save for the auction 
